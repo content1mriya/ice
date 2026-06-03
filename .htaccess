@@ -1,0 +1,24 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^catalog/?$ catalog.php [L,QSA]
+
+# Окремі сторінки брендів
+RewriteRule ^brand/tcl/?$ pages/brand-tcl.php [L,QSA]
+RewriteRule ^brand/hisense/?$ pages/brand-hisense.php [L,QSA]
+RewriteRule ^brand/skylux/?$ pages/brand-skylux.php [L,QSA]
+
+RewriteRule ^product/([^/]+)/?$ product.php?slug=$1 [L,QSA]
+
+RewriteRule ^payment-delivery/?$ pages/payment-delivery.php [L,QSA]
+RewriteRule ^warranty-return/?$ pages/warranty-return.php [L,QSA]
+RewriteRule ^public-offer/?$ pages/public-offer.php [L,QSA]
+RewriteRule ^privacy-policy/?$ pages/privacy-policy.php [L,QSA]
+RewriteRule ^contacts/?$ pages/contacts.php [L,QSA]
+RewriteRule ^about/?$ pages/about.php [L,QSA]
+
+ErrorDocument 404 /404.php
+</IfModule>
